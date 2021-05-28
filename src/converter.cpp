@@ -56,9 +56,9 @@ class PointCloudConverter
     string points_in_, points2_in_, points_out_, points2_out_;
 
   public:
-    PointCloudConverter () : nh_ ("~"), queue_size_ (100), 
-                             points_in_ ("/points_in"), points2_in_ ("/points2_in"), 
-                             points_out_ ("/points_out"), points2_out_ ("/points2_out")
+    PointCloudConverter () : nh_ (), queue_size_ (100), 
+                             points_in_ ("points_in"), points2_in_ ("points2_in"), 
+                             points_out_ ("points_out"), points2_out_ ("points2_out")
     {
       // Subscribe to the cloud topic using both the old message format and the new
       sub_points_ = nh_.subscribe (points_in_, queue_size_, &PointCloudConverter::cloud_cb_points, this);
